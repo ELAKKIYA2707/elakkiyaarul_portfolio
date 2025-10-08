@@ -51,6 +51,268 @@
             background-color: var(--bg-color);
             scroll-behavior: smooth;
             transition: var(--transition);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Modern Web Designer Background */
+        .designer-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 108, 247, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 108, 247, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(40px);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-color);
+            top: 10%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary-color);
+            bottom: 10%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            background: #ff6b6b;
+            top: 40%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .shape-4 {
+            width: 200px;
+            height: 200px;
+            background: #4ecdc4;
+            bottom: 30%;
+            right: 15%;
+            animation-delay: 6s;
+        }
+
+        .shape-5 {
+            width: 150px;
+            height: 150px;
+            background: #ffd166;
+            top: 20%;
+            right: 30%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .code-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+        }
+
+        .code-line {
+            position: absolute;
+            height: 2px;
+            background: var(--primary-color);
+            width: 100%;
+            transform-origin: left;
+            animation: codeFlow 20s linear infinite;
+        }
+
+        .code-line:nth-child(1) {
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .code-line:nth-child(2) {
+            top: 40%;
+            animation-delay: 5s;
+        }
+
+        .code-line:nth-child(3) {
+            top: 60%;
+            animation-delay: 10s;
+        }
+
+        .code-line:nth-child(4) {
+            top: 80%;
+            animation-delay: 15s;
+        }
+
+        @keyframes codeFlow {
+            0% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            50% {
+                transform: scaleX(1);
+                opacity: 0.05;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+        }
+
+        .gradient-spot {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 108, 247, 0.1) 0%, rgba(74, 108, 247, 0) 70%);
+            top: -300px;
+            right: -300px;
+            z-index: -1;
+        }
+
+        .gradient-spot-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(111, 66, 193, 0.1) 0%, rgba(111, 66, 193, 0) 70%);
+            bottom: -250px;
+            left: -250px;
+            z-index: -1;
+        }
+
+        .pixel-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(74, 108, 247, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 108, 247, 0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+
+        .connection-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .connection-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .connection-dot:nth-child(1) { top: 20%; left: 15%; }
+        .connection-dot:nth-child(2) { top: 40%; left: 25%; }
+        .connection-dot:nth-child(3) { top: 60%; left: 35%; }
+        .connection-dot:nth-child(4) { top: 80%; left: 45%; }
+        .connection-dot:nth-child(5) { top: 30%; left: 75%; }
+        .connection-dot:nth-child(6) { top: 50%; left: 85%; }
+        .connection-dot:nth-child(7) { top: 70%; left: 65%; }
+
+        .connection-line {
+            position: absolute;
+            height: 1px;
+            background: var(--primary-color);
+            opacity: 0.05;
+            transform-origin: left;
+            animation: connect 15s infinite ease-in-out;
+        }
+
+        @keyframes connect {
+            0%, 100% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scaleX(1);
+                opacity: 0.05;
+            }
+        }
+
+        .connection-line-1 {
+            top: 20%;
+            left: 15%;
+            width: 200px;
+            animation-delay: 0s;
+        }
+
+        .connection-line-2 {
+            top: 40%;
+            left: 25%;
+            width: 150px;
+            animation-delay: 2s;
+        }
+
+        .connection-line-3 {
+            top: 60%;
+            left: 35%;
+            width: 180px;
+            animation-delay: 4s;
+        }
+
+        .connection-line-4 {
+            top: 30%;
+            left: 75%;
+            width: 120px;
+            animation-delay: 6s;
+        }
+
+        .connection-line-5 {
+            top: 50%;
+            left: 85%;
+            width: 160px;
+            animation-delay: 8s;
         }
         
         .container {
@@ -63,6 +325,7 @@
         section {
             padding: 100px 0;
             scroll-margin-top: 80px;
+            position: relative;
         }
         
         .section-title {
@@ -857,6 +1120,43 @@
     </style>
 </head>
 <body>
+    <!-- Modern Web Designer Background -->
+    <div class="designer-bg">
+        <div class="grid-overlay"></div>
+        <div class="floating-shapes">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="floating-shape shape-5"></div>
+        </div>
+        <div class="code-lines">
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+            <div class="code-line"></div>
+        </div>
+        <div class="gradient-spot"></div>
+        <div class="gradient-spot-2"></div>
+        <div class="pixel-grid"></div>
+        <div class="connection-dots">
+            <div class="connection-dot"></div>
+            <div class="connection-dot"></div>
+            <div class="connection-dot"></div>
+            <div class="connection-dot"></div>
+            <div class="connection-dot"></div>
+            <div class="connection-dot"></div>
+            <div class="connection-dot"></div>
+        </div>
+        <div class="connection-lines">
+            <div class="connection-line connection-line-1"></div>
+            <div class="connection-line connection-line-2"></div>
+            <div class="connection-line connection-line-3"></div>
+            <div class="connection-line connection-line-4"></div>
+            <div class="connection-line connection-line-5"></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -898,7 +1198,6 @@
                     <div class="profile-img-container">
                         <img src="profile.jpg" alt="Elakkiya A" class="profile-img">
                         
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1099,6 +1398,7 @@
                     <p>Learning path completed on the Microsoft Azure AI essentials <p>
                     <a href="CertificateOfCompletion_Microsoft Azure AI Essentials Professional Certificate by Microsoft and LinkedIn.pdf" class="cert-link">View Certificate</a>
                 </div>
+                
                 <div class="certification-card">
                     <h3>Fundamentals of Deep Learning - NVIDIA </h3>
                     <span class="date">Completed: September 2025</span>
@@ -1331,6 +1631,4 @@
         }
     </script>
 </body>
-
 </html>
-
